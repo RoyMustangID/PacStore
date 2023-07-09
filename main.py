@@ -127,7 +127,7 @@ while True:
     elif chosen_action.lower() == "empty":                                  # Empty cart action is chosen
         print(wipe)                                                         # Clear interpreter console
         print("Do you really want to empty your shopping cart?")
-        clear_cart = input("Type 'yes' to confirm")                         # Confirmation
+        clear_cart = input("Type 'yes' to confirm ")                         # Confirmation
         if clear_cart.lower() == "yes":
             Buyer1.empty_cart()                                             # Call empty_cart method
         else:
@@ -167,3 +167,4 @@ while True:
 
     else:
         print("That Action is not available")                               # If user input other than available actions
+        print("You can type 'help' to see what actions are available.")

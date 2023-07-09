@@ -57,6 +57,7 @@ class Buyer:
     def delete_item(self, item_name):
         """Delete existing item in shopping cart with input: item name"""
         self.shopping_cart.pop(item_name)                           # Remove the item from the shopping cart dictionary
+        self.calculate_subtotal()
         print(f"{item_name} has been removed from the cart")
 
     def empty_cart(self):
