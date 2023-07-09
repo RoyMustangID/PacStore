@@ -9,9 +9,9 @@ User can choose what action they want to do and can type 'help' for a list of ac
 from module import Buyer        # Import the main Class to run cashier program
 from module import Wipe         # Import an optional class to clear interpreter console for cleaner UI
 
-wipe = Wipe()                   # Will be used to clear the interpreter console
+wipe = Wipe()                                                            # Will be used to clear the interpreter console
 
-print("Welcome to PacStore Shop!")                                         # Welcoming message
+print("Welcome to PacStore Shop!")                                         # Welcoming message :D
 while True:                                                                # Loop used to ensure the name input is valid
     input_name = input("Customer Name = ")
     customer_name = input_name.upper()
@@ -60,110 +60,110 @@ while True:
     elif chosen_action.lower() == "edit":
         print(wipe)                                                         # Clear interpreter console
         while True:
-            item_name = input("What item do you want to change? ")
+            item_name = input("What item do you want to change? ")          # Input key for cart dictionary to edit
 
-            if item_name.lower() == "back":
+            if item_name.lower() == "back":                                 # Back to Action Choice
                 break
 
-            elif len(Buyer1.shopping_cart) == 0:
-                print("The cart is empty")
+            elif len(Buyer1.shopping_cart) == 0:                            # Check whether cart is empty
+                print("The cart is empty")                                  # If it's empty, nothing can be edited
                 break
 
-            elif not item_name.lower() in Buyer1.shopping_cart.keys():
+            elif not item_name.lower() in Buyer1.shopping_cart.keys():      # Check whether item with that name exist
                 print("No such item exists")
                 print("Please try to input another item or type 'back' to cancel the action")
 
             else:
                 while True:
-                    chosen_edit = input("Do you want to change the name, quantity, or price? ")
-                    if chosen_edit == "back":
+                    chosen_edit = input("Do you want to change the name, quantity, or price? ")  # Choose what to edit
+                    if chosen_edit == "back":                                       # Back to Action Choice
                         break
 
-                    elif chosen_edit.lower() == "name":
+                    elif chosen_edit.lower() == "name":                             # Edit name action is chosen
                         new_name = input(f"What new name do you want for {item_name.lower()}? ")
-                        if new_name.lower() in Buyer1.shopping_cart.keys():
-                            print(f"{new_name} already exist in the cart")
+                        if new_name.lower() in Buyer1.shopping_cart.keys():         # Check if there are already other
+                            print(f"{new_name} already exist in the cart")          # item with the name
                         else:
-                            Buyer1.edit_name(item_name.lower(), new_name.lower())
+                            Buyer1.edit_name(item_name.lower(), new_name.lower())   # Call edit_name method
                             break
 
-                    elif chosen_edit == "quantity":
+                    elif chosen_edit == "quantity":                                 # Edit quantity action is chosen
                         new_qty = input("Insert new quantity ")
                         try:
-                            Buyer1.edit_quantity(item_name.lower(), int(new_qty))
+                            Buyer1.edit_quantity(item_name.lower(), int(new_qty))   # Call edit_quantity method
                         except ValueError:
-                            print("Quantity should be inputted in whole number")
+                            print("Quantity should be inputted in whole number")    # Exception if qty is not int
                         break
 
-                    elif chosen_edit == "price":
+                    elif chosen_edit == "price":                                    # Edit price action is chosen
                         new_price = input("Insert new price ")
                         try:
-                            Buyer1.edit_price(item_name.lower(), int(new_price))
+                            Buyer1.edit_price(item_name.lower(), int(new_price))    # Call edit_price method
                         except ValueError:
-                            print("Price should be inputted in whole number")
+                            print("Price should be inputted in whole number")       # Exception if price is not int
                         break
 
                     else:
-                        print("That option is not available")
+                        print("That option is not available")                       # If the user type outside of name,
                         print("Please choose between name, quantity, and price \n\
-              or type 'back' to cancel the action")
+              or type 'back' to cancel the action")                                 # quantity or price
 
                     break
             break
 
-    elif chosen_action.lower() == "delete":
+    elif chosen_action.lower() == "delete":                                 # Delete item action is chosen
         print(wipe)                                                         # Clear interpreter console
         while True:
-            item_name = input("What item do you want to delete? ")
-            if item_name.lower() == 'back':
+            item_name = input("What item do you want to delete? ")          # User input what item to delete
+            if item_name.lower() == 'back':                                 # Back to Action Choice
                 break
-            elif item_name.lower() not in Buyer1.shopping_cart.keys():      #
+            elif item_name.lower() not in Buyer1.shopping_cart.keys():      # Check whether item with that name exist
                 print("No item with that name exists")
                 print("Please try to input another item or type 'back' to cancel the action")
             else:
-                Buyer1.delete_item(item_name.lower())
+                Buyer1.delete_item(item_name.lower())                       # Call delete_item method
                 break
 
-    elif chosen_action.lower() == "empty":
+    elif chosen_action.lower() == "empty":                                  # Empty cart action is chosen
         print(wipe)                                                         # Clear interpreter console
         print("Do you really want to empty your shopping cart?")
-        clear_cart = input("Type 'yes' to confirm")
+        clear_cart = input("Type 'yes' to confirm")                         # Confirmation
         if clear_cart.lower() == "yes":
-            Buyer1.empty_cart()
+            Buyer1.empty_cart()                                             # Call empty_cart method
         else:
-            print("Action is cancelled")
+            print("Action is cancelled")                                    # Cancel empty cart action
 
-    elif chosen_action.lower() == "show":
+    elif chosen_action.lower() == "show":                                   # Show cart action is chosen
         print(wipe)                                                         # Clear interpreter console
-        Buyer1.show_cart()
+        Buyer1.show_cart()                                                  # Call show_cart method
 
     elif chosen_action.lower() == "total":
         print(wipe)                                                         # Clear interpreter console
 
-        if len(Buyer1.shopping_cart) == 0:
-            print("The cart is empty")
+        if len(Buyer1.shopping_cart) == 0:                                  # Check if the cart is empty
+            print("The cart is empty")                                      # Total can't be calculated if cart is empty
 
         else:
-            Buyer1.total_price()
+            Buyer1.total_price()                                            # Call total_price method
             print("Advance to payment?")
-            payment = input("Type 'yes' to confirm ")
-            if payment.lower() == "yes":
+            payment = input("Type 'yes' to confirm ")                       # Confirmation to pay (end program)
+            if payment.lower() == "yes":                                    # Confirmed to end the program
                 print(f"Thank you, {Buyer1.name} \n\
         Please use your Transaction ID {Buyer1.transaction_id} for payment \n\
         We hope for your return")
                 break
-            else:
-                print("You did not confirm the payment, please continue your shopping")
+            else:                                                           # Program not ended
+                print("You did not confirm the payment, please continue your shopping")  # Continue shopping
 
-    elif chosen_action.lower() == "cancel":
+    elif chosen_action.lower() == "cancel":                                 # Cancel transaction action is chosen
         print(wipe)                                                         # Clear interpreter console
         print("Do you really want to cancel the transaction?")
-        leave_shop = input("Type 'yes' to confirm ")
-        if leave_shop.lower() == "yes":
-            print("Your transaction is successfully cancelled")
+        leave_shop = input("Type 'yes' to confirm ")                        # Confirmation of transaction cancellation
+        if leave_shop.lower() == "yes":                                     # Confirmation to cancel the transaction
+            print("Your transaction is successfully cancelled")             # Confirmed to end the program
             break
-        else:
-            print("You did not confirm the cancellation, please continue your shopping")
+        else:                                                               # Program not ended
+            print("You did not confirm the cancellation, please continue your shopping")  # Continue shopping
 
     else:
-        print("That Action is not available")
+        print("That Action is not available")                               # If user input other than available actions
