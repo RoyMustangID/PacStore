@@ -1,5 +1,5 @@
 """
-This is a cashier program and made so the user does not have to know much about coding
+This is a cashier program and made so the user does not have to know much about coding to run it
 To run the program, the user only needs to run this file as a whole
 After the program is running, the user needs to enter their name, and they will be brought
 to the main menu.
