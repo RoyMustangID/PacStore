@@ -1,13 +1,16 @@
 # PacStore Self-Cashier
 This program is made so the user does not have to know much about coding to run it.<br />
-To run the program, the user only needs to run this file as a whole.<br />
+To run the program, the user only needs to run main.py file as a whole.<br />
 After the program is running, the user needs to enter their name, and they will be brought
 to the main menu.<br />
 User can choose what action they want to do and can type 'help' for a list of action available.<br />
 ## Background
 A simple python self-cashier program for a supermarket
 
-## Requirements
+## Library Requirements
+tabulate==0.9.0
+
+## Project Requirements
 ### 1. Transaction ID
 Generating transaction ID for the customer to start shopping
 ### 2. Add item
