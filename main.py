@@ -3,7 +3,8 @@ This is a cashier program and made so the user does not have to know much about 
 To run the program, the user only needs to run this file as a whole
 After the program is running, the user needs to enter their name, and they will be brought
 to the main menu.
-User can choose what action they want to do and can type 'help' for a list of action available
+User can choose what action they want to do and can type 'help' for a list of action available.
+User can cancel the transaction using cancel action
 """
 
 from module import Buyer        # Import the main Class to run cashier program
